@@ -1,0 +1,22 @@
+<html>
+    <body>
+
+        <div class = 'pane'>
+            <div class = 'header'>
+                 <h1>Vegan friendly Restaurants in Prenzlauer Berg usw</h1>
+            </div>
+
+            {% for restaurant in restaurants %}
+                <div class = 'restaurantName'>
+                    <span class = 'name'><p>{{restaurant.name}}</p></span>
+                </div>
+
+
+                <div class = "editdeletepane">
+                    <a href="{{url_for('editRestaurant',restaurant_id = restaurant.id)}}" >Edit</a>
+                    <a href="{{url_for('deleteRestaurant', restaurant_id = restaurant.id)}}">Delete</a>
+                </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>

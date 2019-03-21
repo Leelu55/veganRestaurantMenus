@@ -1,0 +1,32 @@
+<html>
+    <body>
+         <div class = 'pane'>
+            <div class = 'header'>
+                 <h1>{{restaurant.name}}</h1>
+            </div>
+
+            {% for menuItem in menuItems %}
+                <div class = 'nameAndPrice'>
+                    <span class = 'name'>
+                        <p>{{menuItem.name}}</p>
+                    </span>
+
+                    <span class = 'price'>
+                         <p>{{menuItem.price}} </p>
+                    </span>
+
+                    <span class = 'course'>
+                         <p>{{menuItem.course}} </p>
+                    </span>
+                </div>
+
+                <div class = 'description'>
+                    <p>{{menuItem.description}}</p>
+                </div>
+
+                <div class = "editdeletepane">
+                    <a href="{{url_for('editMenuItem',restaurant_id = restaurant.id, menuItem_id=menuItem['id'])}}" >Edit</a>
+                    <a href="{{url_for('deleteMenuItem', restaurant_id = restaurant.id, menuItem_id = menuItem['id'])}}">Delete</a>
+            {%endfor%}
+    </body>
+</html>

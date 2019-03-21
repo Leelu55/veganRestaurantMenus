@@ -5,6 +5,8 @@
                  <h1>{{restaurant.name}}</h1>
             </div>
 
+             <a href="{{url_for('addNewMenuItem',restaurant_id = restaurant.id)}}" >enter new menu item</a>
+
             {% for menuItem in menuItems %}
                 <div class = 'nameAndPrice'>
                     <span class = 'name'>
@@ -25,7 +27,7 @@
                 </div>
 
                 <div class = "editdeletepane">
-                    <a href="{{url_for('editMenuItem',restaurant_id = restaurant.id, menuItem_id=menuItem['id'])}}" >Edit</a>
+                    <a href="{{url_for('editMenuItem',restaurant_id = restaurant.id, menuItem_id = menuItem['id'])}}" >Edit</a>
                     <a href="{{url_for('deleteMenuItem', restaurant_id = restaurant.id, menuItem_id = menuItem['id'])}}">Delete</a>
             {%endfor%}
     </body>

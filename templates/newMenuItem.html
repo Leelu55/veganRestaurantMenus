@@ -1,0 +1,32 @@
+<html>
+
+<body>
+
+<h1>New Menu Item</h1>
+
+<div class = 'pane'>
+<form action="{{ url_for('addNewMenuItem', restaurant_id=restaurant_id )}}" method = 'post'>
+
+<dl>
+    <dt>Name:</dt>
+        <dd><input type ='text' size='30' name='name'></dd>
+    <dt>description:</dt>
+        <dd><input type ='text' size='30' name='description'></dd>
+    <dt>price:</dt>
+        <dd><input type ='text' size='30' name='price'></dd>
+    <dt>Course:</dt>
+        <dd><input type ='course' size='30' name='course'></dd>
+</dl>
+
+
+<input type='submit' value='Create'>
+
+</form>
+</div>
+
+</body>
+
+
+
+
+</html>

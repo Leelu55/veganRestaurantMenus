@@ -6,11 +6,16 @@
                  <h1>Vegan friendly Restaurants in Prenzlauer Berg usw</h1>
             </div>
 
+            <a href="{{url_for('addNewRestaurant')}}" >Add new Restaurant</a>
+
             {% for restaurant in restaurants %}
                 <div class = 'restaurantName'>
-                    <span class = 'name'><p>{{restaurant.name}}</p></span>
+                    <span class = 'name'>
+                        <p>
+                            <a href="{{url_for('showRestaurantMenu',restaurant_id = restaurant.id)}}">{{restaurant.name}}</a>
+                        </p>
+                    </span>
                 </div>
-
 
                 <div class = "editdeletepane">
                     <a href="{{url_for('editRestaurant',restaurant_id = restaurant.id)}}" >Edit</a>

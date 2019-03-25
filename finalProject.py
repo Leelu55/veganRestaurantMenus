@@ -56,7 +56,6 @@ def editRestaurant(restaurant_id):
     else:
         return render_template('editRestaurant.html', restaurant_id = restaurant_id, restaurant = restaurant)
 
-##this code doesn't really delete restaurant, because of temporary test data
 @app.route('/restaurant/<int:restaurant_id>/delete/', methods=['GET', 'POST'])
 def deleteRestaurant(restaurant_id):
     restaurantToDelete = session.query(Restaurant).filter_by(id = restaurant_id).one()
@@ -85,7 +84,6 @@ def editMenuItem(restaurant_id, menuItem_id):
 
     return render_template('editMenuItem.html', restaurant_id = restaurant_id, menuItem_id = menuItem_id, item = menuItem)
 
-##this code doesn't really delete mentuItem, because of temporary test data
 @app.route('/restaurant/<int:restaurant_id>/menu/<int:menuItem_id>/delete/', methods=['GET', 'POST'])
 def deleteMenuItem(restaurant_id, menuItem_id):
     menuItemToDelete = session.query(MenuItem).filter_by(id = menuItem_id).one()
@@ -96,6 +94,23 @@ def deleteMenuItem(restaurant_id, menuItem_id):
     else:
         return render_template('deleteMenuItem.html', restaurant_id = restaurant_id, menuItem_id = menuItem_id,menuItem = menuItemToDelete)
 
+@app.route('/restaurants/JSON')
+def restaurantsJSON():
+    restaurants = session.query(Restaurant)
+    return jsonify(Restaurants = [restaurant.serialize for restaurant in restaurants])
+
+
+@app.route('/restaurant/<int:restaurant_id>/menu/JSON')
+def restaurantMenuJSON(restaurant_id):
+    #restaurant = session.query(Restaurant).filter_by(id = restaurant_id).one()
+    menuItems = session.query(MenuItem).filter_by(restaurant_id = restaurant_id).all()
+    return jsonify(MenuItems = [menuItem.serialize for menuItem in menuItems])
+
+
+@app.route('/restaurant/<int:restaurant_id>/menu/<int:menuItem_id>/JSON')
+def menuItemJSON(restaurant_id, menuItem_id):
+    menuItem = session.query(MenuItem).filter_by(id = menuItem_id, restaurant_id = restaurant_id).one()
+    return jsonify(MenuItem = [menuItem.serialize])
 
 
 #Fake Restaurants

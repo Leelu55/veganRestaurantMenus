@@ -20,7 +20,7 @@ session = DBSession()
 
 
 # Menu for UrbanBurger
-restaurant1 = Restaurant(name="Urban Burger", image = "/images/restaurantImage_1")
+restaurant1 = Restaurant(name="Urban Burger", image = "restaurantImage_1")
 
 session.add(restaurant1)
 session.commit()
@@ -82,7 +82,7 @@ session.commit()
 
 
 # Menu for Super Stir Fry
-restaurant2 = Restaurant(name="Super Stir Fry", image = "/images/restaurantImage_2")
+restaurant2 = Restaurant(name="Super Stir Fry", image = "restaurantImage_2")
 
 session.add(restaurant2)
 session.commit()
@@ -126,7 +126,7 @@ session.commit()
 
 
 # Menu for Panda Garden
-restaurant1 = Restaurant(name="Panda Garden", image = "/images/restaurantImage_3")
+restaurant1 = Restaurant(name="Panda Garden", image = "restaurantImage_3")
 
 session.add(restaurant1)
 session.commit()
@@ -164,7 +164,7 @@ session.commit()
 
 
 # Menu for Thyme for that
-restaurant1 = Restaurant(name="Thyme for That Vegetarian Cuisine ", image = "/images/restaurantImage_4")
+restaurant1 = Restaurant(name="Thyme for That Vegetarian Cuisine ", image = "restaurantImage_4")
 
 session.add(restaurant1)
 session.commit()
@@ -208,7 +208,7 @@ session.commit()
 
 
 # Menu for Tony's Bistro
-restaurant1 = Restaurant(name="Tony\'s Bistro ", image = "/images/restaurantImage_5")
+restaurant1 = Restaurant(name="Tony\'s Bistro ", image = "restaurantImage_5")
 
 session.add(restaurant1)
 session.commit()
@@ -246,7 +246,7 @@ session.commit()
 
 
 # Menu for Andala's
-restaurant1 = Restaurant(name="Andala\'s", image = "/restaurantImage__6/")
+restaurant1 = Restaurant(name="Andala\'s", image = "restaurantImage_6")
 
 session.add(restaurant1)
 session.commit()
@@ -284,7 +284,7 @@ session.commit()
 
 
 # Menu for Auntie Ann's
-restaurant1 = Restaurant(name="Auntie Ann\'s Diner ", image = "/images/restaurantImage_7")
+restaurant1 = Restaurant(name="Auntie Ann\'s Diner ", image = "restaurantImage_7")
 
 session.add(restaurant1)
 session.commit()
@@ -334,7 +334,7 @@ session.commit()
 
 
 # Menu for Cocina Y Amor
-restaurant1 = Restaurant(name="Cocina Y Amor ", image = "/images/restaurantImage_8")
+restaurant1 = Restaurant(name="Cocina Y Amor ", image = "restaurantImage_8")
 
 session.add(restaurant1)
 session.commit()
@@ -353,7 +353,7 @@ session.add(menuItem2)
 session.commit()
 
 
-restaurant1 = Restaurant(name="State Bird Provisions", image = "/images/restaurantImage_9")
+restaurant1 = Restaurant(name="State Bird Provisions", image = "restaurantImage_9")
 session.add(restaurant1)
 session.commit()
 

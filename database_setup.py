@@ -13,6 +13,8 @@ class Restaurant(Base):
 
     id = Column(Integer, primary_key=True)
     name = Column(String(250), nullable=False)
+    image = Column(String(250), nullable=False)
+
 
 # added serialize function to send restaurants JSON objects in a
 # serializable format
@@ -22,6 +24,7 @@ class Restaurant(Base):
         return {
             'name': self.name,
             'id': self.id,
+            'image': self.image
         }
 
 class MenuItem(Base):

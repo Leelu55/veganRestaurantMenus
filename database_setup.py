@@ -35,6 +35,7 @@ class MenuItem(Base):
     description = Column(String(250))
     price = Column(String(8))
     course = Column(String(250))
+    dish_image = Column(String(250), nullable=False)
     restaurant_id = Column(Integer, ForeignKey('restaurant.id'))
     restaurant = relationship(Restaurant)
 
@@ -49,6 +50,7 @@ class MenuItem(Base):
             'id': self.id,
             'price': self.price,
             'course': self.course,
+            'dish_image': self.dish_image
         }
 
 

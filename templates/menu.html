@@ -6,10 +6,15 @@
     <body>
          <div class = 'pane'>
             <div class = 'header'>
-                 <h1>{{restaurant.name}}</h1>
+                <img src="{{url_for('static', filename='images/' + restaurant.image + '.jpg')}}"/>
+                <h1>{{restaurant.name}}</h1>
             </div>
 
-             <a href="{{url_for('addNewMenuItem',restaurant_id = restaurant.id)}}" >enter new menu item</a>
+            <div class="container">
+                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                <a href="{{url_for('addNewMenuItem',restaurant_id = restaurant.id)}}" >Add New Menu Item</a>
+            </div>
+
             <ul>
             {% for menuItem in menuItems %}
                 <li>

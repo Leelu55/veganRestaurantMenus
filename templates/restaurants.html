@@ -3,6 +3,7 @@
         <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles.css')}}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+<!--listen for onclick events for later server comunication
         <script type="text/javascript">
             function addEventListeners(selector, type, handler) {
                 var elements = document.querySelectorAll(selector)
@@ -18,22 +19,22 @@
                 })
             });
         </script>
+-->
+
     </head>
 
     <body>
         <div class = 'pane'>
             <div class = 'header'>
-                <li>
                 <img src="{{url_for('static', filename='images/home_icon.jpg')}}"/>
-                <div class="container">
-                    <h1>Vegan friendly Restaurants in Prenzlauer Berg</h1>
-                </div>
-            </li>
+                <h1>Vegan friendly Restaurants in Prenzlauer Berg</h1>
             </div>
-              <div class="container">
-                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                    <a href="{{url_for('addNewRestaurant')}}" >Add new Restaurant</a>
-                </div>
+
+            <div class="container">
+                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                <a href="{{url_for('addNewRestaurant')}}" >Add new Restaurant</a>
+            </div>
+
             <ul>
             {% for restaurant in restaurants %}
                 <li>

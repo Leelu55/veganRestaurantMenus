@@ -1,12 +1,22 @@
+ @font-face { font-family: Berlin; src: url('fonts/Berlin.ttf'); }
+
+body {
+  font-family: Berlin;
+  background-color: #ff842a;
+}
+
 ul {
   list-style-type: none;
   padding-bottom: : 0;
-  padding-left: 50px
+  margin-left: 100px;
+  padding-left: 0;
 }
 
 li {
   display: flex;
-  padding-bottom: 20px;
+  margin-bottom: 20px;
+  background-color: #fed65e;
+  margin-right: 100px
 }
 
 li img {
@@ -15,12 +25,22 @@ li img {
 
 li .container {
   flex: 1;
-  margin: 10px;
+  margin-left: 50px;
 }
 
 li:hover {
   background: #eee;
   cursor: pointer;
+}
+
+li h3 {
+  font-family: Berlin;
+  font-size: 20pt;
+}
+
+.container {
+  flex: 1;
+  margin-left: 100px;
 }
 
 .editdeletepane {
@@ -32,10 +52,19 @@ li:hover {
 }
 
 .header {
-  background-color: green;
-  margin: none;
-  padding: 10px;
+  display: flex;
+  background-color: #8d9440;
+  margin-bottom: 30px;
   width: 100%;
+}
+
+.header h1 {
+    flex: 1;
+    margin-left: 30px;
+}
+
+.header img {
+  width: 5%;
 }
 
 div.stars {
@@ -49,19 +78,19 @@ label.star {
   float: right;
   padding: 10px;
   font-size: 36px;
-  color: #444;
+  color: #ff842a;
+  border: 1px;
   transition: all .2s;
 }
 
 input.star:checked ~ label.star:before {
   content: '\f005';
-  color: #FD4;
+  color: #ff842a;
   transition: all .25s;
 }
 
 input.star-5:checked ~ label.star:before {
-  color: #FE7;
-  text-shadow: 0 0 20px #952;
+  color: #ff842a;
 }
 
 input.star-1:checked ~ label.star:before { color: #F62; }

@@ -1,24 +1,68 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles.css')}}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <script type="text/javascript">
+            function addEventListeners(selector, type, handler) {
+                var elements = document.querySelectorAll(selector)
+                elements.forEach( function(element) {
+                    element.addEventListener(type, handler);
+                })
+            }
+
+            document.addEventListener("DOMContentLoaded", function(event) {
+                addEventListeners('.stars form input', 'click', function() {
+                console.error({ ratingId: this.id.split('-')[1], stars: this.id.split('-')[2] })
+                return false
+                })
+            });
+        </script>
     </head>
+
     <body>
         <div class = 'pane'>
             <div class = 'header'>
-                <h1>Vegan friendly Restaurants in Prenzlauer Berg</h1>
-                <a href="{{url_for('addNewRestaurant')}}" >Add new Restaurant</a>
+                <li>
+                <img src="{{url_for('static', filename='images/home_icon.jpg')}}"/>
+                <div class="container">
+                    <h1>Vegan friendly Restaurants in Prenzlauer Berg</h1>
+                </div>
+            </li>
             </div>
+              <div class="container">
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                    <a href="{{url_for('addNewRestaurant')}}" >Add new Restaurant</a>
+                </div>
             <ul>
             {% for restaurant in restaurants %}
                 <li>
                     <img src="{{url_for('static', filename='images/' + restaurant.image + '.jpg')}}"/>
                      <div class="container">
                             <h3><a href="{{url_for('showRestaurantMenu',restaurant_id = restaurant.id)}}">{{restaurant.name}}</a></h3>
-                             <div class = "editdeletepane">
-                                <a href="{{url_for('editRestaurant',restaurant_id = restaurant.id)}}" >Edit</a>
-                                <a href="{{url_for('deleteRestaurant', restaurant_id = restaurant.id)}}">Delete</a>
-                            </div>
+
+                    <div class="stars">
+                      <form action="" id="rating-{{restaurant.id}}">
+                        <input class="star star-5" id="star-{{restaurant.id}}-5" type="radio" name="star"/>
+                        <label class="star star-5" for="star-{{restaurant.id}}-5"></label>
+                        <input class="star star-4" id="star-{{restaurant.id}}-4" type="radio" name="star"/>
+                        <label class="star star-4" for="star-{{restaurant.id}}-4"></label>
+                        <input class="star star-3" id="star-{{restaurant.id}}-3" type="radio" name="star"/>
+                        <label class="star star-3" for="star-{{restaurant.id}}-3"></label>
+                        <input class="star star-2" id="star-{{restaurant.id}}-2" type="radio" name="star"/>
+                        <label class="star star-2" for="star-{{restaurant.id}}-2"></label>
+                        <input class="star star-1" id="star-{{restaurant.id}}-1" type="radio" name="star"/>
+                        <label class="star star-1" for="star-{{restaurant.id}}-1"></label>
+                      </form>
                     </div>
+
+                    <div class = "editdeletepane">
+                        <a href="{{url_for('editRestaurant',restaurant_id = restaurant.id)}}" >Edit</a>
+                        <a href="{{url_for('deleteRestaurant', restaurant_id = restaurant.id)}}">Delete</a>
+                    </div>
+
+                    </div>
+
                 </li>
             {% endfor %}
             </ul>

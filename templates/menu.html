@@ -1,4 +1,8 @@
 <html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles.css')}}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
     <body>
          <div class = 'pane'>
             <div class = 'header'>
@@ -6,13 +10,12 @@
             </div>
 
              <a href="{{url_for('addNewMenuItem',restaurant_id = restaurant.id)}}" >enter new menu item</a>
-
+            <ul>
             {% for menuItem in menuItems %}
-                <div class = 'nameAndPrice'>
-                    <span class = 'name'>
-                        <p>{{menuItem.name}}</p>
-                    </span>
-
+                <li>
+                <img src="{{url_for('static', filename='images/' + restaurant.image + '.jpg')}}"/>
+                <div class="container">
+                    <h3>{{menuItem.name}}</h3>
                     <span class = 'price'>
                          <p>{{menuItem.price}} </p>
                     </span>
@@ -20,15 +23,19 @@
                     <span class = 'course'>
                          <p>{{menuItem.course}} </p>
                     </span>
-                </div>
 
-                <div class = 'description'>
-                    <p>{{menuItem.description}}</p>
-                </div>
+                    <div class = 'description'>
+                        <p>{{menuItem.description}}</p>
+                    </div>
 
-                <div class = "editdeletepane">
-                    <a href="{{url_for('editMenuItem',restaurant_id = restaurant.id, menuItem_id = menuItem['id'])}}" >Edit</a>
-                    <a href="{{url_for('deleteMenuItem', restaurant_id = restaurant.id, menuItem_id = menuItem['id'])}}">Delete</a>
+                    <div class = "editdeletepane">
+                        <a href="{{url_for('editRestaurant',restaurant_id = restaurant.id)}}" >Edit</a>
+                        <a href="{{url_for('deleteRestaurant', restaurant_id = restaurant.id)}}">Delete</a>
+                    </div>
+                </div>
+            </li>
             {%endfor%}
+        </ul>
+    </div>
     </body>
 </html>

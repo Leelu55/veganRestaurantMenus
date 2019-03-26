@@ -112,7 +112,6 @@ def menuItemJSON(restaurant_id, menuItem_id):
     menuItem = session.query(MenuItem).filter_by(id = menuItem_id, restaurant_id = restaurant_id).one()
     return jsonify(MenuItem = [menuItem.serialize])
 
-
 #Fake Restaurants
 restaurant = {'name': 'The CRUDdy Crab', 'id': '1'}
 

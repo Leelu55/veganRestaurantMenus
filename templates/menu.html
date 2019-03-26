@@ -18,25 +18,25 @@
             <ul>
             {% for menuItem in menuItems %}
                 <li>
-                <img src="{{url_for('static', filename='images/' + restaurant.image + '.jpg')}}"/>
-                <div class="container">
-                    <h3>{{menuItem.name}}</h3>
-                    <span class = 'price'>
-                         <p>{{menuItem.price}} </p>
-                    </span>
+                    <img src="{{url_for('static', filename='images/' + menuItem.dish_image + '.jpg')}}"/>
+                    <div class="container">
+                        <h3>{{menuItem.name}}</h3>
+                        <span class = 'price'>
+                             <p>{{menuItem.price}} </p>
+                        </span>
 
-                    <span class = 'course'>
-                         <p>{{menuItem.course}} </p>
-                    </span>
+                        <span class = 'course'>
+                            <p>{{menuItem.course}} </p>
+                        </span>
 
-                    <div class = 'description'>
-                        <p>{{menuItem.description}}</p>
-                    </div>
+                        <div class = 'description'>
+                            <p>{{menuItem.description}}</p>
+                        </div>
 
-                    <div class = "editdeletepane">
-                        <a href="{{url_for('editRestaurant',restaurant_id = restaurant.id)}}" >Edit</a>
-                        <a href="{{url_for('deleteRestaurant', restaurant_id = restaurant.id)}}">Delete</a>
-                    </div>
+                        <div class = "editdeletepane">
+                            <a href="{{url_for('editMenuItem',restaurant_id = restaurant.id, menuItem_id = menuItem.id)}}" >Edit</a>
+                            <a href="{{url_for('deleteMenuItem', restaurant_id = restaurant.id, menuItem_id = menuItem.id)}}">Delete</a>
+                        </div>
                 </div>
             </li>
             {%endfor%}

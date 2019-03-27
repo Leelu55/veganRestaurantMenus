@@ -5,10 +5,47 @@ body {
   background-color: #ff842a;
 }
 
+.deletePane {
+  background-color: #fed65e;
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  padding-left: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-right: 0;
+
+}
+
+#add_edit_form {
+  margin-left: 300px;
+}
+
+form .input_field {
+  padding-bottom: 10px;
+  display: flex;
+}
+
+.input_field p {
+  padding: 0;
+  width: 100px;
+  margin-right: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 13pt;
+}
+
+a, a:visited {
+    color:black;
+    text-decoration:none;
+    }
+
 ul {
   list-style-type: none;
   padding-bottom: : 0;
-  margin-left: 100px;
+  margin-left: 300px;
   padding-left: 0;
 }
 
@@ -16,11 +53,12 @@ li {
   display: flex;
   margin-bottom: 20px;
   background-color: #fed65e;
-  margin-right: 100px
+  margin-right: 300px
 }
 
-li img {
+img {
   width: 20%;
+  object-fit: cover;
 }
 
 li .container {
@@ -41,12 +79,61 @@ li h3 {
 
 .container {
   flex: 1;
-  margin-left: 100px;
+  margin-left: 10px;
+}
+
+.addNewRestaurant {
+  cursor: pointer;
+  color: white;
+  padding: 10px 0px 10px 10px;
+  display: inline-block;
+  background-color: SlateBlue;
+  margin-left: 300px;
+  border-radius: 25px;
+}
+
+.addNewRestaurant a {
+  padding: 0 15px 0 10px;
+  font-size: 13pt;
+}
+
+.addNewRestaurant:hover, .addNewRestaurant:active {
+  background-color: MediumSeaGreen;
 }
 
 .editdeletepane {
   padding-top: 10px;
 }
+
+a {
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  display: inline-block;
+}
+
+#cancel {
+  background-color: Gray;
+  padding: 10px;
+  border-radius: 25px;
+}
+
+ #editTag {
+    background-color: MediumSeaGreen;
+ }
+
+ #editTag:hover, #editTag:active{
+    background-color: green;
+ }
+
+ #deleteTag {
+  background-color: Tomato;
+}
+
+#deleteTag:hover, #editTag:active{
+    background-color: red;
+ }
+
 
 .checked {
   color: orange;

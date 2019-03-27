@@ -10,9 +10,9 @@
                 <h1>{{restaurant.name}}</h1>
             </div>
 
-            <div class="container">
+            <div class="addNewRestaurant" onclick="location.href='{{url_for('addNewMenuItem',restaurant_id = restaurant.id)}}'">
                 <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                <a href="{{url_for('addNewMenuItem',restaurant_id = restaurant.id)}}" >Add New Menu Item</a>
+                <a>Add New Menu Item</a>
             </div>
 
             <ul>
@@ -34,8 +34,8 @@
                         </div>
 
                         <div class = "editdeletepane">
-                            <a href="{{url_for('editMenuItem',restaurant_id = restaurant.id, menuItem_id = menuItem.id)}}" >Edit</a>
-                            <a href="{{url_for('deleteMenuItem', restaurant_id = restaurant.id, menuItem_id = menuItem.id)}}">Delete</a>
+                            <a id = "editTag" href="{{url_for('editMenuItem',restaurant_id = restaurant.id, menuItem_id = menuItem.id)}}">Edit</a>
+                            <a id = "deleteTag" href="{{url_for('deleteMenuItem', restaurant_id = restaurant.id, menuItem_id = menuItem.id)}}">Delete</a>
                         </div>
                 </div>
             </li>

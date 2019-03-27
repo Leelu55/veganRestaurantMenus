@@ -1,34 +1,40 @@
 <html>
-
-<body>
-
-<h1>New Menu Item</h1>
-
-<div class = 'pane'>
-<form action="{{ url_for('addNewMenuItem', restaurant_id=restaurant_id )}}" method = 'post'>
-
-<dl>
-    <dt>Name:</dt>
-        <dd><input type ='text' size='30' name='name'></dd>
-    <dt>description:</dt>
-        <dd><input type ='text' size='30' name='description'></dd>
-    <dt>price:</dt>
-        <dd><input type ='text' size='30' name='price'></dd>
-    <dt>Course:</dt>
-        <dd><input type ='text' size='30' name='course'></dd>
-    <dt>Course:</dt>
-        <dd><input type ='text' size='30' name='dish_image'></dd>
-</dl>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles.css')}}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <div class = 'header'>
+            <img src="{{url_for('static', filename='images/' + restaurant.image + '.jpg')}}"/>
+            <h1>{{restaurant.name}}</h1>
+        </div>
 
 
-<input type='submit' value='Create'>
-
-</form>
-</div>
-
-</body>
-
-
-
-
+        <div< class = 'pane'>
+            <form id ="add_edit_form" action="{{ url_for('addNewMenuItem', restaurant_id=restaurant_id )}}" method = 'post'>
+                <h3>New Menu Item</h3>
+                    <div class = "input_field">
+                        <p>Name: </p>
+                        <input type ='text' size='30' name='name'  placeholder="Salad Heaven">
+                    </div>
+                    <div class = "input_field">
+                        <p>Description: </p>
+                        <input type ='text' size='30' name='description'  placeholder="Delicious Leaves and Vegetables">
+                    </div>
+                    <div class = "input_field">
+                        <p>Price: </p>
+                        <input type ='text' size='30' name='price' placeholder="4,40€">
+                    </div>
+                    <div class = "input_field">
+                        <p>Course: </p>
+                        <input type ='text' size='30' name='course'  placeholder="main">
+                    </div>
+                    <div class = "input_field">
+                        <p>Dish Image File: </p>
+                        <input type ='text' size='30' name='dish_image'  placeholder="dish_3">
+                    </div>
+                <input type='submit' value='Create'>
+            </form>
+        </div>
+    </body>
 </html>

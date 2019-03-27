@@ -27,17 +27,17 @@
         <div class = 'pane'>
             <div class = 'header'>
                 <img src="{{url_for('static', filename='images/home_icon.jpg')}}"/>
-                <h1>Vegan friendly Restaurants in Prenzlauer Berg</h1>
+                <h1>Best Vegan Restaurants in Prenzlauer Berg</h1>
             </div>
 
-            <div class="container">
+            <div class="addNewRestaurant" onclick="location.href='{{url_for('addNewRestaurant')}}'">
                 <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                <a href="{{url_for('addNewRestaurant')}}" >Add new Restaurant</a>
+                <a>Add new Restaurant</a>
             </div>
 
             <ul>
             {% for restaurant in restaurants %}
-                <li>
+                <li onclick="location.href='{{url_for('showRestaurantMenu',restaurant_id = restaurant.id)}}'">
                     <img src="{{url_for('static', filename='images/' + restaurant.image + '.jpg')}}"/>
                      <div class="container">
                             <h3><a href="{{url_for('showRestaurantMenu',restaurant_id = restaurant.id)}}">{{restaurant.name}}</a></h3>
@@ -58,8 +58,8 @@
                     </div>
 
                     <div class = "editdeletepane">
-                        <a href="{{url_for('editRestaurant',restaurant_id = restaurant.id)}}" >Edit</a>
-                        <a href="{{url_for('deleteRestaurant', restaurant_id = restaurant.id)}}">Delete</a>
+                        <a id = "editTag" href="{{url_for('editRestaurant',restaurant_id = restaurant.id)}}" >Edit</a>
+                        <a id = "deleteTag" href="{{url_for('deleteRestaurant', restaurant_id = restaurant.id)}}">Delete</a>
                     </div>
 
                     </div>

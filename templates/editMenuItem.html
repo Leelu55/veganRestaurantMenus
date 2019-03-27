@@ -1,19 +1,37 @@
 <html>
+ <head>
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles.css')}}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
     <body>
-        <form action= "{{url_for('editMenuItem', restaurant_id = restaurant_id, menuItem_id = item.id)}}" method = 'POST'>
+        <div class = 'header'>
+            <img src="{{url_for('static', filename='images/' + item.dish_image + '.jpg')}}"/>
+            <h1>{{item.name}}</h1>
+        </div>
 
-            <p>Name:</p>
-            <input type = 'text' size='30' name = 'name' placeholder = '{{item.name}}'>
-            <p>Description:</p>
-            <input type = 'text' size='30' name = 'description' placeholder = '{{item.description}}'>
-            <p>Price:</p>
-            <input type = 'text' size='30' name = 'price' placeholder = '{{item.price}}'>
-            <p>Course:</p>
-            <input type = 'text' size='30' name = 'course' placeholder = '{{item.course}}'>
-
-            <input type='submit' value='Edit'>
+        <form id="add_edit_form" action= "{{url_for('editMenuItem', restaurant_id = restaurant_id, menuItem_id = item.id)}}" method = 'POST'>
+            <div class = "input_field">
+                <p>Name:</p>
+                <input type = 'text' size='30' name = 'name' placeholder = '{{item.name}}'>
+            </div>
+            <div class = "input_field">
+                <p>Description:</p>
+                <input type = 'text' size='30' name = 'description' placeholder = '{{item.description}}'>
+            </div>
+           <div class = "input_field">
+                <p>Price:</p>
+                <input type = 'text' size='30' name = 'price' placeholder = '{{item.price}}'>
+            </div>
+            <div class = "input_field">
+                <p>Course:</p>
+                <input type = 'text' size='30' name = 'course' placeholder = '{{item.course}}'>
+            </div>
+             <div class = "input_field">
+                <p>Dish Image File: </p>
+                <input type = 'text' size='30' name = 'dish_image' placeholder = '{{item.dish_image}}'>
+            </div>
+            <input id="editTag" type='submit' value='Edit'>
+            <a id ="cancel" href= "{{url_for('showRestaurantMenu', restaurant_id= restaurant_id)}}">Cancel</a>
         </form>
-
-        <a href= "{{url_for('showRestaurantMenu', restaurant_id= restaurant_id)}}">Cancel</a>
     </body>
 </html>

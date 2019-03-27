@@ -4,18 +4,21 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
+        <div class = 'header'>
+            <img src="{{url_for('static', filename='images/home_icon.jpg')}}"/>
+            <h1>Best Vegan Restaurants in Prenzlauer Berg</h1>
+        </div>
 
         <div class="deletePane">
             <h1> Are you sure you want to delete {{restaurant.name}}? </h1>
+            <
             <img src="{{url_for('static', filename='images/' + restaurant.image + '.jpg')}}"/>
 
             <form action="{{ url_for('deleteRestaurant', restaurant_id=restaurant.id)}}" method = 'post'>
 
-            <input type='submit', value = 'Delete'>
-
-        </form>
-        <a id ="cancel" href = "{{ url_for('showRestaurants')}}">Cancel</a>
-    </div>
+                <input type='submit', value = 'Delete'>
+                <a id ="cancel" href = "{{ url_for('showRestaurants')}}">Cancel</a>
+            </form>
+        </div>
     </body>
-
 </html>
